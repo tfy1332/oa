@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="chain" location="10,165" size="525,245">
+    <action name="aAction_*" location="65,57" size="150,41">
+      <result name="success" />
+    </action>
+    <action name="chain2Action_*" location="65,162" size="150,41">
+      <result name="success" />
+    </action>
+    <action name="chain3Action_*" location="310,162" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="chain.jsp" />
+      </result>
+    </action>
+  </package>
+  <webResource name="chain.jsp" path="chain.jsp" location="345,10" size="150,55" />
+</Struts2Diagram>
+

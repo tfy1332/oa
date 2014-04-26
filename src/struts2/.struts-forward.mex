@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="forward" location="302,10" size="280,245">
+    <action name="forwardAction_forward" location="65,57" size="150,41">
+      <result name="forward">
+        <resourceEdge source="forward" routing="0" target="%{#forward}.jsp" />
+      </result>
+    </action>
+    <action name="kynamicAction" location="65,162" size="150,41">
+      <result name="kynamic">
+        <resourceEdge source="kynamic" routing="0" target="kynamic.jsp" />
+      </result>
+    </action>
+  </package>
+  <webResource name="%{#forward}.jsp" path="WEB-INF/jsp/frame/%{#forward}.jsp" location="9,30" size="150,55" />
+  <webResource name="kynamic.jsp" path="WEB-INF/jsp/kynamic/kynamic.jsp" location="646,135" size="150,55" />
+</Struts2Diagram>
+

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<weblogic-web-app  
+    xmlns="http://www.bea.com/ns/weblogic/weblogic-web-app" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://www.bea.com/ns/weblogic/weblogic-web-app/1.0/weblogic-web-app.xsd">
+ <context-root>/</context-root>  
+ 
+ <container-descriptor>
+ 	<servlet-reload-check-secs>0</servlet-reload-check-secs>
+ 	<resource-reload-check-secs>0</resource-reload-check-secs>
+ 	<prefer-web-inf-classes>true</prefer-web-inf-classes> 
+ </container-descriptor>
+ <jsp-descriptor>
+ 	<page-check-seconds>0</page-check-seconds>
+ </jsp-descriptor>
+ <!-- 集群环境设置持久类型 -->
+ <session-descriptor>
+ 	<persistent-store-type>replicated_if_clustered</persistent-store-type>
+ </session-descriptor>
+</weblogic-web-app> 

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+
+<struts>
+	<!-- 配置文件改了以后不用重新启动 -->
+	<constant name="struts.devMode" value="true" />
+
+	<constant name="struts.ui.theme" value="simple" />
+
+	<!--
+		把struts的请求委托给spring管理, 作用:创建Action实例的过程由spring处理,其他的还是有struts2自己处理
+	-->
+	<constant name="struts.objectFactory" value="spring" />
+
+	<include file="struts2/struts-person.xml"></include>
+
+	<include file="struts2/struts-department.xml"></include>
+
+	<include file="struts2/struts-user.xml"></include>
+
+	<include file="struts2/struts-menuitem.xml"></include>
+
+	<include file="struts2/struts-privilege.xml"></include>
+
+	<include file="struts2/struts-forward.xml"></include>
+	
+	<include file="struts2/struts-post.xml"></include>
+
+	<include file="struts2/struts-login.xml"></include>
+
+	<include file="struts2/struts-kynamic.xml"></include>
+	
+	<include file="struts2/struts-jbpm.xml"></include>
+	
+	<include file="struts2/struts-chain.xml"></include>
+
+	<package name="oajson" namespace="/" extends="json-default">
+		<interceptors>
+			<interceptor-stack name="myDefaultStack">
+				<interceptor-ref name="json" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="myDefaultStack" />
+	</package>
+
+
+
+
+	<package name="struts-global" namespace="/" extends="json-default">
+		<global-results>
+			<result name="errHandler" type="chain">
+				<param name="actionName">errorProcessor</param>
+			</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception"
+				result="errHandler" />
+		</global-exception-mappings>
+
+		<action name="errorProcessor" class="cn.itheima01.oa.exception.ErrorProcessor">
+			<result type="json"></result>
+		</action>
+	</package>
+	
+	<package name="aa" namespace="/" extends="struts-global">
+		<action name="aaAction_*" method="{1}" class="cn.itheima01.struts.action.AAction">
+			<result></result>
+		</action>
+	</package>
+</struts>	

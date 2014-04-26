@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<!-- 是用来描述数据库的连接 -->
+<session-factory>
+	<!-- 
+		驱动
+	-->
+	<property name="connection.driver_class">
+		com.mysql.jdbc.Driver
+	</property>
+	<!-- 
+		url
+	-->
+	<property name="connection.url">
+		jdbc:mysql://localhost:3306/oa
+	</property>
+	<!-- 
+		username
+	-->
+	<property name="connection.username">root</property>
+	<!-- 
+		password
+	-->
+	<property name="connection.password"></property>
+	<!-- 
+		hibernate针对建表的操作
+		update  如果有表，检查表的结构，如果没有则创建
+		create-drop 启动hibernate创建表，结束hibernate删除表
+		create  每次启动都重新创建表
+		validate 每次启动都检查表的结构
+	-->
+	<property name="hbm2ddl.auto">update</property>
+	<!-- 
+		把sql语句打印到控制台，这个时候可以检验优化的效率
+	-->
+	<property name="show_sql">true</property>
+	<property name="dialect">
+		org.hibernate.dialect.MySQLDialect
+	</property>
+	<mapping resource="com/hbsy/oa/domain/Approve.hbm.xml" />
+	<mapping resource="com/hbsy/oa/domain/Department.hbm.xml" />
+	<mapping resource="com/hbsy/oa/domain/Form.hbm.xml" />
+	<mapping resource="com/hbsy/oa/domain/FormTemplate.hbm.xml" />
+	<mapping resource="com/hbsy/oa/domain/Kynamic.hbm.xml" />
+	<mapping resource="com/hbsy/oa/domain/Menuitem.hbm.xml" />
+	<mapping resource="com/hbsy/oa/domain/Person.hbm.xml" />
+	<mapping resource="com/hbsy/oa/domain/Post.hbm.xml" />
+	<mapping resource="com/hbsy/oa/domain/User.hbm.xml" />
+	<mapping resource="com/hbsy/oa/domain/Version.hbm.xml" />
+
+
+</session-factory>
+</hibernate-configuration>

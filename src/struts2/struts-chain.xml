@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<package name="chain" namespace="/" extends="struts-default">
+		<action name="aAction_*" method="{1}" class="com.hbsy.oa.action.Chain1Action">
+			<result type="chain">
+				<param name="actionName">chain2Action</param>
+				<param name="method">bb</param>
+			</result>
+		</action>
+		
+		<action name="chain2Action_*" method="{1}" class="com.hbsy.oa.action.Chain2Action">
+			<result type="chain">
+				<param name="actionName">chain3Action</param>
+				<param name="method">cc</param>
+			</result>
+		</action>
+		
+		<action name="chain3Action_*" method="{1}" class="com.hbsy.oa.action.Chain3Action">
+			<result>chain.jsp</result>
+		</action>
+	</package>
+</struts>	

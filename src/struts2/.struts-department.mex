@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="department" location="10,165" size="280,210">
+    <action name="departmentAction!*" location="0,0" size="0,0">
+      <result name="listAction">
+        <resourceEdge source="listAction" routing="0" target="list.jsp" />
+      </result>
+      <result name="action2action" />
+      <result name="addUI">
+        <resourceEdge source="addUI" routing="0" target="add.jsp" />
+      </result>
+      <result name="updateUI">
+        <resourceEdge source="updateUI" routing="0" target="update.jsp" />
+      </result>
+      <result name="query">
+        <resourceEdge source="query" routing="0" target="list.jsp" />
+      </result>
+    </action>
+  </package>
+  <webResource name="list.jsp" path="WEB-INF/jsp/department/list.jsp" location="44,430" size="150,55" />
+  <webResource name="add.jsp" path="WEB-INF/jsp/department/add.jsp" location="40,10" size="150,55" />
+  <webResource name="update.jsp" path="WEB-INF/jsp/department/update.jsp" location="346,220" size="150,55" />
+</Struts2Diagram>
+
